@@ -6,6 +6,7 @@ const { executeSQL } = require('../support/database');
 
 test('Deve poder cadastrar um novo filme', async({ page}) =>{
 
+
     const movie = data.create;
     await executeSQL(`DELETE FROM movies WHERE title = '${movie.title}'`);
 
@@ -16,4 +17,5 @@ test('Deve poder cadastrar um novo filme', async({ page}) =>{
     await page.movies.create(movie.title, movie.overview, movie.company, movie.release_year);
 
     await page.toast.containText('Cadastro realizado com sucesso!');
+
 })
